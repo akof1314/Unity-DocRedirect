@@ -1,0 +1,12 @@
+{
+  "name": "com.wuhuan.docredirect",
+  "displayName": "Doc Redirect",
+  "version": "1.0.0",
+  "unity": "2020.3",
+  "description": "Doc Redirect.",
+  "keywords": [
+    "Doc Redirect"
+  ],
+  "category": "Editor",
+  "dependencies": {}
+}

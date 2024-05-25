@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript重定向示例</title>
+</head>
+<body>
+    <script>
+        function redirect() {
+            let url = window.location.href;
+
+            let node = 'Manual';
+            if (url.indexOf('/?section=api&') > -1) {
+                node = 'ScriptReference';
+
+                url = url.replace('/?section=api&', '/index?');
+            }
+            else {
+                url = url.replace('/?section=manual&', '/index?');
+            }
+
+
+            let pos = url.indexOf('&');
+            if (pos > -1) {
+                let pos2 = url.indexOf('?', pos + 1);
+                if (pos2 > -1) {
+                    let pos3 = url.indexOf('=', pos2);
+                    if (pos3 > -1) {
+                        let docPage = url.substring(pos + 1, pos2);
+                        let docVer = url.substring(pos3 + 1);
+
+                        //console.log(docPage);
+                        //console.log(docVer);
+
+                        window.location.href = docVer + "/Documentation/" + node + docPage + ".html";
+                    }
+                }
+            }
+        }
+
+        // 页面加载完成后立即执行重定向
+        window.onload = redirect;
+    </script>
+</body>
+</html>
